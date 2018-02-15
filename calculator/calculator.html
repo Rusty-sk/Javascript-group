@@ -1,8 +1,8 @@
 <html>
 <!-- our basic 'shell' for javascript work -->
     <head>
-        <link rel="stylesheet" href="./calc-style.css">
         <script type="text/javascript" src="calc-javascript.js"></script>
+        <link rel="stylesheet" href="./calc-style.css">
 
         <title>The Calculator!!! ]>☉_☉]></title>
 
@@ -10,25 +10,25 @@
 
     <body>
 
-        <input id="display"/>
+        <input type="text" id="display"/>
 
         <table>
 
             <tr>
               <td>
-                <input type="button" name="x²" value="x²">
+                <input type="button" name="x²" value="x²" onclick="number(this.value)">
               </td>
 
               <td>
-                <input type="button" name="√" value="√">
+                <input type="button" name="√" value="squarer" onclick="number()">
               </td>
 
               <td>
-                <input type="button" name="%" value="%">
+                <input type="button" name="%" value="%" onclick="number(this.value)">
               </td>
 
               <td>
-                <input type="button" name="÷" value="÷">
+                <input type="button" name="÷" value="÷" onclick="number(this.value)">
               </td>
             </tr>
 
@@ -46,7 +46,7 @@
               </td>
 
               <td>
-                <input type="button" name="x" value="x">
+                <input type="button" name="x" value="x" onclick="number(this.value)">
               </td>
             </tr>
 
@@ -65,7 +65,7 @@
               </td>
 
               <td>
-                <input type="button" name="-" value="-">
+                <input type="button" name="-" value="-" onclick="number(this.value)">
               </td>
             </tr>
 
@@ -83,13 +83,13 @@
               </td>
 
               <td>
-                <input type="button" name="+" value="+">
+                <input type="button" name="+" value="+" onclick="number(this.value)">
               </td>
             </tr>
 
             <tr>
               <td>
-                <input type="button" name="AC" value="ac">
+                <input type="button" name="AC" value="AC" onclick="number(this.value)">
               </td>
 
               <td>
@@ -101,7 +101,7 @@
               </td>
 
               <td>
-                <input type="button" name="=" value="=">
+                <input type="button" name="=" value="=" onclick="number(this.value)">
               </td>
             </tr>
 
