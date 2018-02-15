@@ -1,13 +1,13 @@
 <html>
 <!-- our basic 'shell' for javascript work -->
     <head>
-    <script type="text/javascript">
+    <script type="text/javascript" src="./js/microwave.js">
 
     </script>
     </head>
     <body>
         <table id="microwave">
-            <tr><input type="text" id="display" name="display" style="width:310px"></tr>
+            <div id="clockDisplay"<tr><input type="text" placeholder="getTime()" id="display" name="display" style="width:310px"></tr></div>
             <tr>
                 <td><input type="button" onclick="this.number(1)"
                      value="1" style="width:100px"/></td>
@@ -38,7 +38,7 @@
                <td><input type="button" onclick="this.number(0)"
                     value="0" style="width:100px"/></td>
                 <td><input type="button" onclick=""
-                     value="start" style="width:100px"/></td>
+                     value="start" style="width:100px" id="startBtn"/></td>
             </tr>
             </tr>
         </table>
