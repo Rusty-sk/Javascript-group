@@ -16,13 +16,14 @@ td > input{
 }
 
 
-body { background: #2C3449 }
+body { background: #2C3449;
+}
 
-body:before
+section:before
 {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 37.5%;
   left: 50%;
   margin: -140px 0 0 -175px;
   border-bottom: 40px solid #111212;
@@ -30,14 +31,15 @@ body:before
   border-right: 50px solid transparent;
   height: 0;
   width: 250px;
+  transform: scale(2);
 }
 
-body:after
+section:after
 {
   content: "";
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top:37.5%;
   left: 50%;
   margin: 80px 0 0 -185px;
   width: 370px;
@@ -45,6 +47,7 @@ body:after
   background: #000;
   border-radius: 100%;
   -webkit-filter: blur(25px);
+  transform: scale(2);
 }
 
 .microwave
@@ -146,9 +149,13 @@ body:after
   -webkit-filter: invert();
 
 }
+
 .clockDisplay{
     margin-left: -50px;
     width: 90px;
+}
+.display{
+
     display: block;
     line-height: 20px;
     vertical-align: middle;
@@ -168,17 +175,17 @@ body:after
   top: 10px;
   right: 0px;
   left: 300px;
-  height: 20px;
-  background: #111212;
-  border-radius: 3px;
+  height: 30px;
 }
+
 
 .microwave > .display > label
 {
-    width: 90px;
+    background: #111212;
+    border-radius: 3px;
   display: block;
   line-height: 20px;
-  vertical-align: middle;
+
   color: #0FC309;
   font-family: Orbitron;
   font-size: 8px;
@@ -201,11 +208,7 @@ body:after
   line-height: 13px;
 }
 
-
-.display{
-    width: 90px !important;
-}
-.microwave > .display > .buttons > button, .microwave > .display > button
+.microwave > .display > .buttons > input, .microwave > .display > input
 {
   display: inline-block;
   margin: 0;
@@ -221,15 +224,9 @@ body:after
   background: #000;
   border: none;
   border-radius: 2px;
-  cursor: pointer;
 }
 
-.microwave > .display > .buttons > button.wide
-{
-  width: 100%;
-}
-
-.microwave > .display > button
+.microwave > .display > input
 {
   position: absolute;
   top: 160px;
@@ -239,7 +236,8 @@ body:after
   font-size: 10px;
   color: #171717;
 }
+
 table {
     transform: scale(.75);
-    margin-left: -65px;
+    margin-left: -67px;
 }
