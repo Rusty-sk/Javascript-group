@@ -5,26 +5,57 @@
         <title>Microwave</title>
         <link rel="stylesheet" href="./styles.css"></link>
 
-        <script type="text/javascript">
-          function getTime(){
-            document.getElementById('microwave').value =
+        <!-- <script type="text/javascript">
+        function getTime(){
+          setInterval('getTime();',1000);
+        }
 
-          }
 
-          function number(){
+        var counter = 0;
 
-          }
+        // here is our showColors function
+        function number(number){
+            // use the value attribute to set something inside a textbox
+            // += so we can concatentate
+            document.getElementById('clockDisplay').innerHTML += number;
+        }
+        function startTimer(){
+            // replace the text content of the div below with data about my counter
+            document.getElementById('clockDisplay').innerHTML=
+            "<h1>Count: " + (counter++) + "</h1>";
+
+            // disable the start button
+            document.getElementById('startBtn').disabled=true;
+            // FINALLY, set our timer using the setTimeout() function,
+            // and re-call this function and in 1000 milliseconds..
+            // I'm going to actually call the function that I'm current in
+            // This is called a 'recursive' function call
+            timer = setTimeout("startTimer()",1000);
+        }
+        function clear(){
+            // call the clearTimeout() function and make
+            // sure to pass in our timer as parameter.  If we
+            // don't pass it in, it won't know what to clear.
+            clearTimeout(number);
+
+            //reset our text in the div`
+            document.getElementById('clear').innerHTML = "Timer Stopped";
+            counter = 0;
+        }
+        </script> -->
+        <script src="">
+
         </script>
     </head>
 
-    <body>
+    <body onload="getTime();">
         <section>
 
 
 
         <div class="microwave">
           <div class="plate"></div>
-          <!-- <div class="door"></div> -->
+          <div class="door"></div>
           <div class="display">
 
 
@@ -33,7 +64,7 @@
 
             <table id="microwave">
 
-            <tr><label  class="clockDisplay" name="display" id='clockDisplay' onloadeddata="getTime"></label></tr>
+            <tr><label class="clockDisplay" name="display" id='clockDisplay'>00:00</label></tr>
                 <tr>
                   <td><input type="button" onclick="number(this.value)"
                          value="1"/></td>
@@ -59,11 +90,11 @@
                          value="9"/></td>
                 </tr>
                 <tr>
-                    <td><input type="button" onclick=""
-                         value="Clear"/></td>
+                    <td><input type="button" onclick=clear();
+                         value="Clear" id="clear"/></td>
                    <td><input type="button" onclick="number(this.value)"
                         value="0"/></td>
-                    <td><input type="button" onclick=""
+                    <td><input type="button" onclick="startTimer();"
                          value="Start" id="startBtn"/></td>
                 </tr>
                 </tr>
