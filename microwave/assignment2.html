@@ -1,0 +1,83 @@
+<html>
+<!-- our basic 'shell' for javascript work -->
+    <head>
+        <meta charset="utf-8">
+        <title>Microwave</title>
+        <link rel="stylesheet" href="./styles.css"></link>
+
+        <script src='./js/microwave.js'></script>
+
+          
+        
+    </head>
+
+    <body>
+        <section>
+
+
+
+        <div class="microwave">
+          <div class="plate"></div>
+          <!-- <div class="door"></div> -->
+          <div class="display">
+
+
+          <!-- <div id="clockDisplay"><tr><input type="text" placeholder="getTime()" id="display" name="display"></tr></div> -->
+
+
+            <table id="microwave">
+
+            <tr><label  class="clockDisplay" name="display" id='clockDisplay' onloadeddata="getTime"></label></tr>
+                <tr>
+                  <td><input type="button" onclick="number(this.value)"
+                         value="1"/></td>
+                   <td><input type="button" onclick="number(this.value)"
+                        value="2"/></td>
+                    <td><input type="button" onclick="number(this.value)"
+                         value="3"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="number(this.value)"
+                         value="4"/></td>
+                   <td><input type="button" onclick="number(this.value)"
+                        value="5"/></td>
+                    <td><input type="button" onclick="number(this.value)"
+                         value="6"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="number(this.value)"
+                         value="7"/></td>
+                   <td><input type="button" onclick="number(this.value)"
+                        value="8"/></td>
+                    <td><input type="button" onclick="number(this.value)"
+                         value="9"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick=""
+                         value="Clear"/></td>
+                   <td><input type="button" onclick="number(this.value)"
+                        value="0"/></td>
+                    <td><input type="button" onclick=""
+                         value="Start" id="startBtn"/></td>
+                </tr>
+                </tr>
+            </table>
+        <!-- <button>eject</button> -->
+
+    </div>
+</div>
+</section>
+    </body>
+
+
+</html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+</html>
