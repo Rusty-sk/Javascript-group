@@ -2,7 +2,8 @@
 <!-- our basic 'shell' for javascript work -->
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
         <link rel="stylesheet" href="./calc-style.css">
 
         <title>The Calculator!!! ]>☉_☉]></title>
@@ -13,38 +14,42 @@
 
       <div id="calculator" class="calculator">
 
-          <div id="memDisplay" class="memDisplay">0</div>
+        <div class="top-display">
           <div id="display" class="display">0</div>
+          <div id="memDisplay" class="memDisplay">0</div>
+        </div>
 
-        <div>
-          <button id="squared" data-ops="squared" class="ops">x²</button>
-          <button id="sqrRoot" data-ops="sqrRoot" class="ops">√</button>
-          <button id="percent" data-ops="percent" class="ops">%</button>
-          <button id="squared" data-ops="divide" class="ops">÷</button>
-        </div>
-        <div>
-          <button class="num" data-num="7">7</button>
-          <button class="num" data-num="8">8</button>
-          <button class="num" data-num="9">9</button>
-          <button data-ops="times" class="ops">X</button>
-        </div>
-        <div>
-          <button class="num" data-num="4">4</button>
-          <button class="num" data-num="5">5</button>
-          <button class="num" data-num="6">6</button>
-          <button data-ops="minus" class="ops">-</button>
-        </div>
-        <div>
-          <button class="num" data-num="1">1</button>
-          <button class="num" data-num="2">2</button>
-          <button class="num" data-num="3">3</button>
-          <button data-ops="plus" class="ops">+</button>
-        </div>
-        <div>
-          <button id="clear" data-num="">AC</button>
-          <button class="num" data-num="0">0</button>
-          <button class="num" data-num=".">.</button>
-          <button id="equals" class="equals" data-result="">=</button>
+        <div class="calc-body">
+          <div>
+            <button id="squared" data-ops="squared" class="ops ops-btn">x²</button>
+            <button id="sqrRoot" data-ops="sqrRoot" class="ops ops-btn">√</button>
+            <button id="percent" data-ops="percent" class="ops ops-btn">%</button>
+            <button id="squared" data-ops="divide" class="ops ops-btn">÷</button>
+          </div>
+          <div>
+            <button class="num" data-num="7">7</button>
+            <button class="num" data-num="8">8</button>
+            <button class="num" data-num="9">9</button>
+            <button data-ops="times" class="ops ops-btn">x</button>
+          </div>
+          <div>
+            <button class="num" data-num="4">4</button>
+            <button class="num" data-num="5">5</button>
+            <button class="num" data-num="6">6</button>
+            <button data-ops="minus" class="ops ops-btn">-</button>
+          </div>
+          <div>
+            <button class="num" data-num="1">1</button>
+            <button class="num" data-num="2">2</button>
+            <button class="num" data-num="3">3</button>
+            <button data-ops="plus" class="ops ops-btn">+</button>
+          </div>
+          <div>
+            <button id="clear" data-num="">AC</button>
+            <button class="num" data-num="0">0</button>
+            <button class="num" data-num=".">.</button>
+            <button id="equals" class="equals ops-btn" data-result="">=</button>
+          </div>
         </div>
       </div>
 

@@ -31,9 +31,9 @@ var setNum = function() {
     if (resultNum) { // If a result was displayed, reset number
       newNum = this.getAttribute("data-num");
       resultNum = "";
-    } else { 
+    } else {
         if (newNum.length > maxNumLength) {
-        newNum = "DANGER OVERLOAD X(";
+        newNum = "DANGER OVERLOAD x(";
         } else { // Otherwise, add digit to previous number (this is a string!)
             newNum += this.getAttribute("data-num");
     }
@@ -41,7 +41,7 @@ var setNum = function() {
     display.innerHTML = newNum; // Display the current number
     memDisplay.innerHTML = oldNum; // Display the number stored in memory
   };
-};  
+};
 
 // When: Operator(+, -, /, x, etc.) is clicked. Pass number to oldNum and save operator
 var moveNum = function() {
@@ -185,7 +185,7 @@ var clearDisplay = function() {
   equals.setAttribute("data-result", resultNum);
 };
 
-// Button fuctionality 
+// Button fuctionality
 
   // Add click event to numbers
   for (var i = 0, l = nums.length; i < l; i++) {
@@ -213,4 +213,3 @@ var clearDisplay = function() {
   // el("#reset").onclick = function() {
   //   window.location = window.location;
   // };
-
