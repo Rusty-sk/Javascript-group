@@ -1,28 +1,47 @@
-  
+// TO DO
+// Fix error for newnumber decimal equals
+// limit decimal to one
 
-var display = "#display", // The Calculator displayed
-    equals = "#equals", // Equal button
-    nums = ".num", // List of numbers
-    ops = ".ops", // List of operators
+
+// function to retrieve elements
+var el = function(element) {
+    if (element.charAt(0) === "#") { // If passed an ID...
+      return document.querySelector(element); // ... returns single element
+    }
+    return document.querySelectorAll(element); // Otherwise, returns a nodelist
+  };
+
+var display = el("#display"), // The Calculator displayed
+    equals = el("#equals"), // Equal button
+    squared = el("#squared"), // Squared button
+    sqrRoot = el("#sqrRoot"), // Square Root button
+    percent = el("#percent"), // Square Root button
+    nums = el(".num"), // List of numbers
+    ops = el(".ops"), // List of operators
     newNum = "", // Current number
     oldNum = "", // First number
+    maxNumLength = 11,
     resultNum, // Result
-    operator; // Batman
-
+    operator; // + - / * etc.
 
 // When: Number is clicked. Get the current number selected
-function setNum() {
+var setNum = function() {
     if (resultNum) { // If a result was displayed, reset number
       newNum = this.getAttribute("data-num");
       resultNum = "";
-    } else { // Otherwise, add digit to previous number (this is a string!)
-      newNum += this.getAttribute("data-num");
+    } else { 
+        if (newNum.length > maxNumLength) {
+        newNum = "DANGER OVERLOAD X(";
+        } else { // Otherwise, add digit to previous number (this is a string!)
+            newNum += this.getAttribute("data-num");
     }
+
     display.innerHTML = newNum; // Display the current number
   };
+};  
 
 // When: Operator(+, -, /, x, etc.) is clicked. Pass number to oldNum and save operator
-function moveNum() {
+var moveNum = function() {
     oldNum = newNum;
     newNum = "";
     operator = this.getAttribute("data-ops");
@@ -34,7 +53,7 @@ function moveNum() {
 //*****************
 
   // When: Equals is clicked. Calculate result
-function displayNum() {
+  var displayNum = function() {
 
     // Convert stores variables to raw numbers
     oldNum = parseFloat(oldNum);
@@ -56,18 +75,6 @@ function displayNum() {
 
       case "divide":
         resultNum = oldNum / newNum;
-        break;
-
-      case "squared":
-        resultNum = oldNum * oldNum;
-        break;
-
-      case "sqrRoot":
-        resultNum = math.sqrt(oldNum);
-        break;
-
-      case "percentage":
-        resultNum = oldNum * (newNum/100);
         break;
 
         // If equal is pressed without a new number
@@ -98,8 +105,53 @@ function displayNum() {
 
   };
 
+var displayRoot = function() {
+
+  oldNum = parseFloat(oldNum);
+  newNum = parseFloat(newNum);
+
+  resultNum = newNum * newNum;
+
+  display.innerHTML = resultNum;
+  equals.setAttribute("data-result", resultNum);
+
+  oldNum = 0;
+  newNum = resultNum;
+}
+
+var displaySqr = function() {
+
+oldNum = parseFloat(oldNum);
+newNum = parseFloat(newNum);
+
+resultNum = Math.sqrt(newNum);
+
+display.innerHTML = resultNum;
+equals.setAttribute("data-result", resultNum);
+
+oldNum = 0;
+newNum = resultNum;
+}
+
+
+var displayPercent = function() {
+
+oldNum = parseFloat(oldNum);
+newNum = parseFloat(newNum);
+
+resultNum = newNum / 100;
+
+display.innerHTML = resultNum;
+equals.setAttribute("data-result", resultNum);
+
+newNum = resultNum;
+}
+
+
+
+
 // Clear (C) command
-function clearDisplay() {
+var clearDisplay = function() {
   oldNum = "";
   newNum = "";
   display.innerHTML = "0";
@@ -110,19 +162,25 @@ function clearDisplay() {
 
   // Add click event to numbers
   for (var i = 0, l = nums.length; i < l; i++) {
-    nums[i].onclick = setNum();
+    nums[i].onclick = setNum;
   }
 
   // Add click event to operators
   for (var i = 0, l = ops.length; i < l; i++) {
-    ops[i].onclick = moveNum();
+    ops[i].onclick = moveNum;
   }
 
   // Add click event to equal sign
-  equals.onclick = displayNum();
+  equals.onclick = displayNum;
+
+  squared.onclick = displayRoot;
+
+  sqrRoot.onclick = displaySqr;
+
+  percent.onclick = displayPercent;
 
   // Add click event to clear button
-  el("#clear").onclick = clearDisplay();
+  el("#clear").onclick = clearDisplay;
 
   // // Add click event to reset button
   // el("#reset").onclick = function() {
