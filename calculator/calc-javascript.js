@@ -1,6 +1,7 @@
 // TO DO
-// Fix error for newnumber decimal equals
-// limit decimal to one
+// prevent input when special function buttons are pressed alone
+// Fix error for newNum decimal equals by itself
+// limit decimal to one unit
 
 
 // function to retrieve elements
@@ -12,6 +13,7 @@ var el = function(element) {
   };
 
 var display = el("#display"), // The Calculator displayed
+    memDisplay = el("#memDisplay"), // The display for stored number
     equals = el("#equals"), // Equal button
     squared = el("#squared"), // Squared button
     sqrRoot = el("#sqrRoot"), // Square Root button
@@ -37,6 +39,7 @@ var setNum = function() {
     }
 
     display.innerHTML = newNum; // Display the current number
+    memDisplay.innerHTML = oldNum; // Display the number stored in memory
   };
 };  
 
@@ -52,7 +55,7 @@ var moveNum = function() {
 //OPERATORS
 //*****************
 
-  // When: Equals is clicked. Calculate result
+  // Calculate result for simple functions when Equals is clicked.
   var displayNum = function() {
 
     // Convert stores variables to raw numbers
@@ -97,6 +100,7 @@ var moveNum = function() {
 
     // Code to display the result on the screen
     display.innerHTML = resultNum;
+    memDisplay.innerHTML = 0;
     equals.setAttribute("data-result", resultNum);
 
     // Resetting the old saved number and keeping the result waiting for next commands
@@ -110,13 +114,22 @@ var displayRoot = function() {
   oldNum = parseFloat(oldNum);
   newNum = parseFloat(newNum);
 
-  resultNum = newNum * newNum;
+  if(isNaN(newNum)){
+      display.innerHTML = 0;
+      memDisplay.innerHTML = 0;
+      oldNum = "";
+      newNum = "";
+      return;
+  } else {
+      resultNum = newNum * newNum;
 
-  display.innerHTML = resultNum;
-  equals.setAttribute("data-result", resultNum);
+      display.innerHTML = resultNum;
+      memDisplay.innerHTML = "x²";
+      equals.setAttribute("data-result", resultNum);
 
-  oldNum = 0;
-  newNum = resultNum;
+      oldNum = 0;
+      newNum = resultNum;
+      }
 }
 
 var displaySqr = function() {
@@ -124,37 +137,51 @@ var displaySqr = function() {
 oldNum = parseFloat(oldNum);
 newNum = parseFloat(newNum);
 
-resultNum = Math.sqrt(newNum);
+  if(isNaN(newNum)){
+      display.innerHTML = 0;
+      memDisplay.innerHTML = 0;
+      oldNum = "";
+      newNum = "";
+      return;
+  } else {
+      resultNum = Math.sqrt(newNum);
 
-display.innerHTML = resultNum;
-equals.setAttribute("data-result", resultNum);
+      display.innerHTML = resultNum;
+      memDisplay.innerHTML = "√";
+      equals.setAttribute("data-result", resultNum);
 
-oldNum = 0;
-newNum = resultNum;
+      oldNum = 0;
+      newNum = resultNum;
+      }
 }
-
 
 var displayPercent = function() {
 
 oldNum = parseFloat(oldNum);
 newNum = parseFloat(newNum);
 
-resultNum = newNum / 100;
+  if(isNaN(newNum)){
+      display.innerHTML = 0;
+      memDisplay.innerHTML = 0;
+      oldNum = "";
+      newNum = "";
+      return;
+  } else {
+      resultNum = newNum / 100;
 
-display.innerHTML = resultNum;
-equals.setAttribute("data-result", resultNum);
+      display.innerHTML = resultNum;
+      equals.setAttribute("data-result", resultNum);
 
-newNum = resultNum;
+      newNum = resultNum;
+      }
 }
-
-
-
 
 // Clear (C) command
 var clearDisplay = function() {
   oldNum = "";
   newNum = "";
   display.innerHTML = "0";
+  memDisplay.innerHTML = "0";
   equals.setAttribute("data-result", resultNum);
 };
 
