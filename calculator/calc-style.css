@@ -1,7 +1,17 @@
-table input {
-  width: 4em;
+.calculator {
+  font-size: 16px;
+  margin: 0 auto;
+  width: 10em;
+}
+.calculator::before, .calculator::after {
+  content: " ";
+  display: table;
+}
+.calculator::after {
+  clear: both;
 }
 
-#display {
-  width: 17em;
+button {
+  width: 2em;
+  height: 2em;
 }
