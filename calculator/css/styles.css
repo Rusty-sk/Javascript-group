@@ -1,0 +1,139 @@
+html {
+  background: black;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 5em 0 2em;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-weight: 300;
+  margin: 0;
+}
+
+
+
+ .calculator {
+  font-size: 28px;
+  margin: 0 auto;
+  width: 10em;
+}
+.calculator::before, .calculator::after {
+  content: " ";
+  display: table;
+}
+.calculator::after {
+  clear: both;
+}
+
+
+
+.viewer {
+  color: white;
+  float: left;
+  line-height: 3em;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 7.5em;
+  height: 3em;
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  background: rgba(42, 50, 113, 0.28);
+  cursor: pointer;
+  float: left;
+  font: inherit;
+  margin: 0.25em;
+  width: 2em;
+  height: 2em;
+  /* -webkit-transition: all 0.5s; */
+  transition: 0s 0.10s;
+}
+
+#dark-gray-btn, #zero-btn {
+  background: #1f2226;
+  color: white;
+}
+
+#dark-gray-btn:active, #zero-btn:active {
+  background: #898b8e;
+  transition: 0s;
+}
+
+#light-gray-btn, #clear {
+  background: #898b8e;
+  color: black;
+}
+
+#light-gray-btn:active, #clear:active {
+  background: #e6e6e6;
+  transition: 0s;
+}
+
+#orange-btn, #equals {
+  background: #ff8000;
+  color: white;
+}
+
+#orange-btn:active, #equals:active {
+  background: white;
+  transition: 0s;
+}
+
+#zero-btn {
+  width: 5em;
+}
+
+
+button:hover {
+  background: #201e40;
+}
+ button:focus {
+  outline: 0;
+
+}
+button:focus::after {
+
+  position: absolute;
+  top: 1.5em;
+  left: 50%;
+  text-align: center;
+  margin-left: -24px;
+  opacity: 0;
+  width: 48px;
+}
+
+/* Same as above, modified for operators */
+.ops:focus::after {
+  content: attr(data-ops);
+  margin-left: -210px;
+  width: 420px;
+}
+
+/* Same as above, modified for result */
+.equals:focus::after {
+  content: attr(data-result);
+  margin-left: -300px;
+  width: 600px;
+}
+
+@media (min-width: 420px) {
+  .calculator {
+    width: 12em;
+  }
+
+  .viewer {
+    width: 8.5em;
+  }
+
+  button {
+    margin: 0.5em;
+  }
+}
