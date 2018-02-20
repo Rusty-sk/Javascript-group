@@ -2,6 +2,7 @@
 // prevent input when special function buttons are pressed alone
 // Fix error for newNum decimal equals by itself
 // limit decimal to one unit
+// add character limiter to equals calculation
 
 
 // function to retrieve elements
@@ -22,7 +23,7 @@ var display = el("#display"), // The Calculator displayed
     ops = el(".ops"), // List of operators
     newNum = "", // Current number
     oldNum = "", // First number
-    maxNumLength = 11,
+    maxNumLength = 9,
     resultNum, // Result
     operator; // + - / * etc.
 

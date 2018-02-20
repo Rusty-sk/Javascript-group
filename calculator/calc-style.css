@@ -2,13 +2,14 @@
   font-size: 16px;
   width: 13em;
   border: 2px solid black;
-  margin-left: 37%;
-  margin-right: 37%;
+  margin-left: 34%;
+  margin-right: 34%;
   margin-top: 5%;
   padding: 10px;
-  padding-top: 30px;
+  padding-top: 10px;
   border-radius: 5px;
   background: black;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .calculator::before, .calculator::after {
@@ -24,13 +25,19 @@
   margin-right: 5px;
 }
 
+.memory-bar {
+  height: 1em;
+  width: 7em;
+  background: #800000;
+  margin-bottom: 8px;
+}
+
 button {
   width: 3.581em;
   height: 2em;
   border-radius: 5px;
   border: #383838;
   margin-bottom: 3px;
-
   background: #383838;
   color: white;
 }
@@ -46,10 +53,16 @@ button:hover {
 .ops-btn {
   background: #A9A9A9;
   border: #A9A9A9;
+  transition: 0s 0.10s;
 }
 
 .ops-btn:hover {
   background: #383838;
+}
+
+.ops-btn:active {
+  background: #ff8000;
+  transition: 0s;
 }
 
 #clear {
