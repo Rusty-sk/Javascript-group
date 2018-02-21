@@ -4,7 +4,6 @@
 // limit decimal to one unit
 // add character limiter to equals calculation
 
-
 // function to retrieve elements
 var el = function(element) {
     if (element.charAt(0) === "#") { // If passed an ID...
@@ -102,7 +101,6 @@ var moveNum = function() {
 
     // Code to display the result on the screen
     display.innerHTML = resultNum;
-    funkDisplay.innerHTML = symbol;
     memDisplay.innerHTML = ".";
     equals.setAttribute("data-result", resultNum);
 
@@ -214,7 +212,6 @@ var clearDisplay = function() {
 
   // Add click event to clear button
   el("#clear").onclick = clearDisplay;
-
 
   // plus.onclick = ;
 
