@@ -1,4 +1,9 @@
 // TO DO
+// character Limit for calculations(display/string length)
+// decimal button - only max one. per string
+// hide placeholder dots for funk and mem displays
+
+
 
 // function to retrieve elements
 var el = function(element) {
@@ -177,10 +182,10 @@ newNum = parseFloat(newNum);
 var clearDisplay = function() {
   oldNum = "";
   newNum = "";
+  resultNum = "";
   display.innerHTML = "0";
   memDisplay.innerHTML = ".";
   funkDisplay.innerHTML = ".";
-  equals.setAttribute("data-result", resultNum);
 };
 
 // Button fuctionality and click events
