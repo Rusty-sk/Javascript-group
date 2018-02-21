@@ -16,8 +16,6 @@ var display = el("#display"), // The Calculator displayed
     equals = el("#equals"), // Equal button
     squared = el("#squared"), // Squared button
     sqrRoot = el("#sqrRoot"), // Square Root button
-    percent = el("#percent"), // Square Root button
-    plus = el("#plus"), // Plus Button
     clear = el("#clear"), // AC button
     decimal = el("#decimal"), // Decimal Button
     nums = el(".num"), // List of numbers
@@ -31,8 +29,7 @@ var display = el("#display"), // The Calculator displayed
 // When a number is clicked, Get the current number selected.
 var setNum = function() {
   if (newNum.length > maxNumLength) {
-      newNum = "DANGER OVERLOAD x(";
-      resultNum = "DANGER OVERLOAD x(";
+      newNum = "..................";
       return;
     } else {
       if (resultNum) { // If a result was displayed, reset number
