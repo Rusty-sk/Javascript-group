@@ -1,8 +1,6 @@
 // TO DO
 // character Limit for calculations(display/string length)
-// decimal button - only max one. per string
-// hide placeholder dots for funk and mem displays
-
+// hide placeholder dots for funk display
 
 
 // function to retrieve elements
@@ -20,6 +18,7 @@ var display = el("#display"), // The Calculator displayed
     sqrRoot = el("#sqrRoot"), // Square Root button
     percent = el("#percent"), // Square Root button
     plus = el("#plus"), // Plus Button
+    decimal = el("#decimal"), // Decimal Button
     nums = el(".num"), // List of numbers
     ops = el(".ops"), // List of operators
     newNum = "", // Current number
@@ -30,12 +29,12 @@ var display = el("#display"), // The Calculator displayed
 
 // When: Number is clicked. Get the current number selected
 var setNum = function() {
-    if (resultNum) { // If a result was displayed, reset number
-      newNum = this.getAttribute("data-num");
-      resultNum = "";
+  if (newNum.length > maxNumLength) {
+      newNum = "DANGER OVERLOAD x(";
     } else {
-        if (newNum.length > maxNumLength) {
-        newNum = "DANGER OVERLOAD x(";
+      if (resultNum) { // If a result was displayed, reset number
+        newNum = this.getAttribute("data-num");
+        resultNum = "";
         } else { // if within bounds will add digits to previous number
             newNum += this.getAttribute("data-num");
     }
@@ -52,6 +51,11 @@ var moveNum = function() {
     operator = this.getAttribute("data-ops")
     funkDisplay.innerHTML = this.getAttribute("id");
     equals.setAttribute("data-result", ""); // Reset result in display
+  };
+
+var disableDecimal = function(){
+    newNum += this.getAttribute("data-num");
+    decimal.disabled=true;
   };
 
 //OPERATORS
@@ -98,9 +102,10 @@ var moveNum = function() {
 
     // Code to display the result on the screen
     display.innerHTML = resultNum;
-    memDisplay.innerHTML = ".";
+    memDisplay.innerHTML = "";
     funkDisplay.innerHTML = ".";
     equals.setAttribute("data-result", resultNum);
+    decimal.disabled=false;
 
     // Resetting the old saved number and keeping the result waiting for next commands
     oldNum = 0;
@@ -116,7 +121,7 @@ var displayRoot = function() {
 
   if(isNaN(newNum)){
       display.innerHTML = 0;
-      memDisplay.innerHTML = 0;
+      memDisplay.innerHTML = "";
       oldNum = "";
       newNum = "";
       return;
@@ -126,6 +131,7 @@ var displayRoot = function() {
       display.innerHTML = resultNum;
       funkDisplay.innerHTML = "x²";
       equals.setAttribute("data-result", resultNum);
+      decimal.disabled=false;
 
       oldNum = 0;
       newNum = resultNum;
@@ -139,7 +145,7 @@ newNum = parseFloat(newNum);
 
   if(isNaN(newNum)){
       display.innerHTML = 0;
-      memDisplay.innerHTML = 0;
+      memDisplay.innerHTML = "";
       oldNum = "";
       newNum = "";
       return;
@@ -149,6 +155,7 @@ newNum = parseFloat(newNum);
       display.innerHTML = resultNum;
       funkDisplay.innerHTML = "√";
       equals.setAttribute("data-result", resultNum);
+      decimal.disabled=false;
 
       oldNum = 0;
       newNum = resultNum;
@@ -162,7 +169,7 @@ newNum = parseFloat(newNum);
 
   if(isNaN(newNum)){
       display.innerHTML = 0;
-      memDisplay.innerHTML = 0;
+      memDisplay.innerHTML = "";
       funkDisplay.innerHTML = ".";
       oldNum = "";
       newNum = "";
@@ -173,6 +180,7 @@ newNum = parseFloat(newNum);
       display.innerHTML = resultNum;
       funkDisplay.innerHTML = "%";
       equals.setAttribute("data-result", resultNum);
+      decimal.disabled=false;
 
       newNum = resultNum;
       }
@@ -184,8 +192,9 @@ var clearDisplay = function() {
   newNum = "";
   resultNum = "";
   display.innerHTML = "0";
-  memDisplay.innerHTML = ".";
+  memDisplay.innerHTML = "";
   funkDisplay.innerHTML = ".";
+  decimal.disabled=false;
 };
 
 // Button fuctionality and click events
@@ -197,6 +206,8 @@ var clearDisplay = function() {
   for (var i = 0, l = ops.length; i < l; i++) {
     ops[i].onclick = moveNum;
   }
+
+  decimal.onclick = disableDecimal;
 
   equals.onclick = displayNum;
 
