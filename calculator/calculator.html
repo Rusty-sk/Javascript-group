@@ -1,8 +1,6 @@
 <html>
-<!-- our basic 'shell' for javascript work -->
     <head>
         <meta charset="UTF-8">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="./calc-style.css">
@@ -13,6 +11,7 @@
 
     <body>
 
+      <!--Container to hold calculator  -->
       <div id="calculator" class="calculator">
 
         <div class="memory-bar"></div>
@@ -21,14 +20,17 @@
 
         <div class="logo"><i class="fa fa-bandcamp"></i></div>
 
+        <!--Div to display calculator output  -->
         <div class="top-display">
           <div id="funkDisplay" class="funkDisplay">.</div>
           <div id="display" class="display">0</div>
           <div id="memDisplay" class="memDisplay"></div>
         </div>
 
+        <!-- Div to hold buttons on calculator  -->
         <div class="calc-body">
           <div>
+            <!-- buttons with different classes and id's to call in javascript -->
             <button id="squared" data-ops="squared" class="ops ops-btn">x²</button>
             <button id="sqrRoot" data-ops="sqrRoot" class="ops ops-btn">√</button>
             <button id="percent" data-ops="percent" class="ops ops-btn">%</button>
@@ -61,7 +63,7 @@
         </div>
       </div>
 
-
+        <!-- sourcing JS here to ensure our calculator loads first  -->
         <script type="text/javascript" src="calc-javascript.js"></script>
 
 
