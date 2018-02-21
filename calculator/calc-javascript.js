@@ -1,8 +1,4 @@
 // TO DO
-// prevent input when special function buttons are pressed alone
-// Fix error for newNum decimal equals by itself
-// limit decimal to one unit
-// add character limiter to equals calculation
 
 // function to retrieve elements
 var el = function(element) {
@@ -35,12 +31,12 @@ var setNum = function() {
     } else {
         if (newNum.length > maxNumLength) {
         newNum = "DANGER OVERLOAD x(";
-        } else { // Otherwise, add digit to previous number (this is a string!)
+        } else { // if within bounds will add digits to previous number
             newNum += this.getAttribute("data-num");
     }
 
     display.innerHTML = newNum; // Display the current number
-    memDisplay.innerHTML = oldNum; // Display the number stored in memory
+    memDisplay.innerHTML = oldNum; // Display the number in memory area
   };
 };
 
@@ -48,15 +44,15 @@ var setNum = function() {
 var moveNum = function() {
     oldNum = newNum;
     newNum = "";
-    operator = this.getAttribute("data-ops");
-
+    operator = this.getAttribute("data-ops")
+    funkDisplay.innerHTML = this.getAttribute("id");
     equals.setAttribute("data-result", ""); // Reset result in display
   };
 
 //OPERATORS
 //*****************
 
-  // Calculate result for simple functions when Equals is clicked.
+  // Equals button calculations
   var displayNum = function() {
 
     // Convert stores variables to raw numbers
@@ -85,30 +81,28 @@ var moveNum = function() {
       default:
         resultNum = newNum;
     }
-///////////////////
 
     // If NaN or Infinity returned
     if (!isFinite(resultNum)) {
       if (isNaN(resultNum)) { // If result is not a number; set off by, eg, double-clicking operators
         resultNum = "Error";
       } else { // If result is infinity (dividing by zero)
-        resultNum = "No, No, No";
-        // We can add some cool function in place of the broken error message if we have some time
-        // el('#calculator').classList.add("broken"); // Break calculator
-        // el('#reset').classList.add("show"); // And show reset button
+        resultNum = "No, No, No!!! 0w0";
       }
     }
 
     // Code to display the result on the screen
     display.innerHTML = resultNum;
     memDisplay.innerHTML = ".";
+    funkDisplay.innerHTML = ".";
     equals.setAttribute("data-result", resultNum);
 
     // Resetting the old saved number and keeping the result waiting for next commands
     oldNum = 0;
     newNum = resultNum;
-
   };
+
+//** Special function button calculations
 
 var displayRoot = function() {
 
@@ -179,7 +173,7 @@ newNum = parseFloat(newNum);
       }
 }
 
-// Clear (C) command
+// Clear button function
 var clearDisplay = function() {
   oldNum = "";
   newNum = "";
@@ -189,19 +183,16 @@ var clearDisplay = function() {
   equals.setAttribute("data-result", resultNum);
 };
 
-// Button fuctionality
+// Button fuctionality and click events
 
-  // Add click event to numbers
   for (var i = 0, l = nums.length; i < l; i++) {
     nums[i].onclick = setNum;
   }
 
-  // Add click event to operators
   for (var i = 0, l = ops.length; i < l; i++) {
     ops[i].onclick = moveNum;
   }
 
-  // Add click event to equal sign
   equals.onclick = displayNum;
 
   squared.onclick = displayRoot;
@@ -210,12 +201,4 @@ var clearDisplay = function() {
 
   percent.onclick = displayPercent;
 
-  // Add click event to clear button
   el("#clear").onclick = clearDisplay;
-
-  // plus.onclick = ;
-
-  // // Add click event to reset button
-  // el("#reset").onclick = function() {
-  //   window.location = window.location;
-  // };
