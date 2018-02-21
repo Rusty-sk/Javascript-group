@@ -87,7 +87,13 @@ button:hover {
   font-size: 12px;
   direction: rtl;
   padding-right: 5px;
-  padding-top: 5px;
+  padding-top: 1px;
+}
+
+.funkDisplay {
+  font-size: 9px;
+  padding-left: 7px;
+  padding-top: 1px;
 }
 
 .display {

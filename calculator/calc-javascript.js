@@ -19,6 +19,7 @@ var display = el("#display"), // The Calculator displayed
     squared = el("#squared"), // Squared button
     sqrRoot = el("#sqrRoot"), // Square Root button
     percent = el("#percent"), // Square Root button
+    plus = el("#plus"), // Plus Button
     nums = el(".num"), // List of numbers
     ops = el(".ops"), // List of operators
     newNum = "", // Current number
@@ -101,7 +102,8 @@ var moveNum = function() {
 
     // Code to display the result on the screen
     display.innerHTML = resultNum;
-    memDisplay.innerHTML = 0;
+    funkDisplay.innerHTML = symbol;
+    memDisplay.innerHTML = ".";
     equals.setAttribute("data-result", resultNum);
 
     // Resetting the old saved number and keeping the result waiting for next commands
@@ -125,7 +127,7 @@ var displayRoot = function() {
       resultNum = newNum * newNum;
 
       display.innerHTML = resultNum;
-      memDisplay.innerHTML = "x²";
+      funkDisplay.innerHTML = "x²";
       equals.setAttribute("data-result", resultNum);
 
       oldNum = 0;
@@ -148,7 +150,7 @@ newNum = parseFloat(newNum);
       resultNum = Math.sqrt(newNum);
 
       display.innerHTML = resultNum;
-      memDisplay.innerHTML = "√";
+      funkDisplay.innerHTML = "√";
       equals.setAttribute("data-result", resultNum);
 
       oldNum = 0;
@@ -164,6 +166,7 @@ newNum = parseFloat(newNum);
   if(isNaN(newNum)){
       display.innerHTML = 0;
       memDisplay.innerHTML = 0;
+      funkDisplay.innerHTML = ".";
       oldNum = "";
       newNum = "";
       return;
@@ -171,6 +174,7 @@ newNum = parseFloat(newNum);
       resultNum = newNum / 100;
 
       display.innerHTML = resultNum;
+      funkDisplay.innerHTML = "%";
       equals.setAttribute("data-result", resultNum);
 
       newNum = resultNum;
@@ -182,7 +186,8 @@ var clearDisplay = function() {
   oldNum = "";
   newNum = "";
   display.innerHTML = "0";
-  memDisplay.innerHTML = "0";
+  memDisplay.innerHTML = ".";
+  funkDisplay.innerHTML = ".";
   equals.setAttribute("data-result", resultNum);
 };
 
@@ -209,6 +214,9 @@ var clearDisplay = function() {
 
   // Add click event to clear button
   el("#clear").onclick = clearDisplay;
+
+
+  // plus.onclick = ;
 
   // // Add click event to reset button
   // el("#reset").onclick = function() {

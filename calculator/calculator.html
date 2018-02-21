@@ -18,8 +18,9 @@
         <div class="logo"><i class="fab fa-bandcamp"></i></div>
 
         <div class="top-display">
+          <div id="funkDisplay" class="funkDisplay">.</div>
           <div id="display" class="display">0</div>
-          <div id="memDisplay" class="memDisplay">0</div>
+          <div id="memDisplay" class="memDisplay">.</div>
         </div>
 
         <div class="calc-body">
@@ -45,7 +46,7 @@
             <button class="num" data-num="1">1</button>
             <button class="num" data-num="2">2</button>
             <button class="num" data-num="3">3</button>
-            <button data-ops="plus" class="ops ops-btn">+</button>
+            <button onclick="displayNumber(1)" id="plus" data-ops="plus" class="ops ops-btn">+</button>
           </div>
           <div>
             <button id="clear" data-num="">AC</button>
