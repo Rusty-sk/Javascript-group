@@ -16,23 +16,20 @@ var display = el("#display"), // The Calculator displayed
     equals = el("#equals"), // Equal button
     squared = el("#squared"), // Squared button
     sqrRoot = el("#sqrRoot"), // Square Root button
-    percent = el("#percent"), // Square Root button
-    plus = el("#plus"), // Plus Button
     clear = el("#clear"), // AC button
     decimal = el("#decimal"), // Decimal Button
     nums = el(".num"), // List of numbers
     ops = el(".ops"), // List of operators
     newNum = "", // Current number
     oldNum = "", // First number
-    maxNumLength = 9,
+    maxNumLength = 11,
     resultNum, // Result
     operator; // + - / * etc.
 
 // When a number is clicked, Get the current number selected.
 var setNum = function() {
   if (newNum.length > maxNumLength) {
-      newNum = "DANGER OVERLOAD x(";
-      resultNum = "DANGER OVERLOAD x(";
+      newNum = "..................";
       return;
     } else {
       if (resultNum) { // If a result was displayed, reset number
@@ -129,7 +126,16 @@ var displayRoot = function() {
   } else {
       resultNum = newNum * newNum;
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,10);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
+
       funkDisplay.innerHTML = "x²";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
@@ -153,7 +159,16 @@ newNum = parseFloat(newNum);
   } else {
       resultNum = Math.sqrt(newNum);
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,10);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
+      
       funkDisplay.innerHTML = "√";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
@@ -178,7 +193,16 @@ newNum = parseFloat(newNum);
   } else {
       resultNum = newNum / 100;
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,10);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
+      
       funkDisplay.innerHTML = "%";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
