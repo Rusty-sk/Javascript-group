@@ -27,9 +27,20 @@
 
 .memory-bar {
   height: 1em;
-  width: 7em;
-  background: #800000;
+  width: 2em;
+  background: linear-gradient(to right, #800000 76%, #000000 100%);
   margin-bottom: 8px;
+  margin-right: -4px;
+}
+
+.memory-bar, .logo {
+  display: inline-block;
+  color: white;
+}
+
+.logo {
+  float: right;
+
 }
 
 button {
@@ -74,10 +85,10 @@ button:hover {
 }
 
 .top-display {
-  border-bottom: solid 2px white;
-  border-right: solid 1px white;
+  border-bottom: solid 2px 	#404040;
+  border-right: solid 1px 	#404040;
   border-radius: 5px;
-  background: #C0C0C0;
+  background: linear-gradient(to bottom, #c0c0c0 76%, #f0f0f0 100%);
   margin-bottom: 12px;
   height: 40px;
   font-family: 'Orbitron', sans-serif;
