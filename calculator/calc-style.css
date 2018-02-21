@@ -6,8 +6,8 @@ body {
   font-size: 24px;
   width: 18em;
   border: 2px solid black;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 33%;
+  margin-right: 33%;
   margin-top: 5%;
   padding: 10px;
   padding-top: 30px;
@@ -101,14 +101,14 @@ button:hover {
 }
 
 .memDisplay {
-  font-size: 12px;
+  font-size: 23px;
   direction: rtl;
   padding-right: 5px;
   padding-top: 1px;
 }
 
 .funkDisplay {
-  font-size: 9px;
+  font-size: 19px;
   padding-left: 7px;
   padding-top: 1px;
 }
