@@ -1,0 +1,225 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+/* @keyframes blink */
+{
+  0% { opacity: 1 }
+  49.99% { opacity: 1 }
+  50% { opacity: 0 }
+  99.99% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+td > input{
+    width:37px;
+    height: 32px;
+    font-size: .6em;
+}
+
+
+body { background: #2C3449;
+}
+
+section:before
+{
+  content: "";
+  position: absolute;
+  top: 33.7%;
+  left: 50%;
+  margin: -140px 0 0 -175px;
+  border-bottom: 40px solid #111212;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  height: 0;
+  width: 250px;
+  transform: scale(2);
+}
+
+section:after
+{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top:37.5%;
+  left: 50%;
+  margin: 80px 0 0 -185px;
+  width: 370px;
+  height: 20px;
+  background: #000;
+  border-radius: 100%;
+  -webkit-filter: blur(25px);
+  transform: scale(2);
+}
+
+.microwave
+{
+  transform: scale(2);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -175px;
+  width: 350px;
+  height: 200px;
+  background: #18191A;
+  border-radius:  0 0 7px 7px;
+}
+.microwave:before
+{
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  bottom: 10px;
+  left: 10px;
+  background: #111212;
+  border-radius: 5px;
+  width: 225px;
+}
+
+/* bottom bg under plate */
+
+.microwave:after
+{
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 60px;
+  bottom: 10px;
+  left: 13px;
+  border-bottom: 50px solid #141516;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  height: 0;
+  width: 119px;
+}
+
+.microwave > .plate
+{
+  position: absolute;
+  top: 10px;
+  right: 156px;
+  bottom: 60px;
+  left: 62px;
+  background: #151617;
+  width: 120px;
+}
+
+.microwave > .plate:before, .microwave > .plate:after
+{
+  content: "";
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: -40px;
+  left: -15px;
+  background: #282A2C;
+  height: 30px;
+  border-radius: 100%;
+  width:150px;
+}
+.microwave > .plate:after
+{
+  bottom: -36px;
+  background: #313436;
+}
+
+.microwave > .door
+{
+  position: absolute;
+  z-index: 4;
+  top: 10px;
+  right: 60px;
+  bottom: 10px;
+  left: 10px;
+  border: 15px solid #0E0F0F;
+  border-radius: 5px;
+  box-shadow: 1px -3px #090A0A;
+  width: 200px;
+}
+
+.microwave > .door:before
+{
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: .15;
+  background: url("https://subtlepatterns.com/patterns/diagonal-noise.png") repeat center;
+  -webkit-filter: invert();
+}
+.clockDisplay{
+    margin-left: -50px;
+    width: 90px;
+}
+.display{
+    display: block;
+    line-height: 20px;
+    vertical-align: middle;
+    color: #0FC309;
+    font-family: Orbitron;
+    font-size: 8px;
+    text-align: center;
+    text-shadow: 0 0 3px #0FC309;
+    /* animation-name: blink; */
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.microwave > .display
+{
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  left: 300px;
+  height: 30px;
+
+}
+
+
+#clockDisplay
+{
+  margin-left: -49px;
+  width: 89px;
+  height: 24px;
+  background: #111212;
+  border-radius: 3px;
+  display: block;
+  line-height: 20px;
+  color: #0FC309;
+  font-family: Orbitron;
+  font-size: 8px;
+  text-align: center;
+  text-shadow: 0 0 3px #0FC309;
+  /* animation-name: blink; */
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  overflow: hidden;
+}
+
+
+table {
+    transform: scale(.75);
+    margin-left: -67px;
+}
+
+#button{
+  border: none;
+  background: grey;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+#button:hover  {
+  background: #505050;
+  color: orange;
+}
+
+#button:focus {
+  outline: none;
+}
