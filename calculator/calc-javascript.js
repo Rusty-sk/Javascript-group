@@ -29,7 +29,7 @@ var display = el("#display"), // The Calculator displayed
 // When a number is clicked, Get the current number selected.
 var setNum = function() {
   if (newNum.length > maxNumLength) {
-      newNum = "..................";
+      newNum = newNum;
       return;
     } else {
       if (resultNum) { // If a result was displayed, reset number
