@@ -24,7 +24,7 @@ var display = el("#display"), // The Calculator displayed
     ops = el(".ops"), // List of operators
     newNum = "", // Current number
     oldNum = "", // First number
-    maxNumLength = 9,
+    maxNumLength = 11,
     resultNum, // Result
     operator; // + - / * etc.
 
@@ -129,17 +129,16 @@ var displayRoot = function() {
   } else {
       resultNum = newNum * newNum;
 
-      var resultStr = resultNum.toString().length > 7 ? resultNum.toExponential() : resultNum.toString();
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
       if (resultStr.indexOf('e') >= 0) {
-        console.log(resultStr);
-
         var getFront = resultStr.substring(0, resultStr.indexOf('e'));
-        var getFrontSubstring = getFront.substring(0,6);
+        var getFrontSubstring = getFront.substring(0,10);
         var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
         display.innerHTML = getFrontSubstring + getBack;  
       } else {
         display.innerHTML = resultStr;  
       }
+
       funkDisplay.innerHTML = "x²";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
@@ -163,7 +162,16 @@ newNum = parseFloat(newNum);
   } else {
       resultNum = Math.sqrt(newNum);
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,10);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
+      
       funkDisplay.innerHTML = "√";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
@@ -188,7 +196,16 @@ newNum = parseFloat(newNum);
   } else {
       resultNum = newNum / 100;
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 11 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,10);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
+      
       funkDisplay.innerHTML = "%";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
