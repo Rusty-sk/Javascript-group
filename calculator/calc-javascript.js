@@ -129,7 +129,17 @@ var displayRoot = function() {
   } else {
       resultNum = newNum * newNum;
 
-      display.innerHTML = resultNum;
+      var resultStr = resultNum.toString().length > 7 ? resultNum.toExponential() : resultNum.toString();
+      if (resultStr.indexOf('e') >= 0) {
+        console.log(resultStr);
+
+        var getFront = resultStr.substring(0, resultStr.indexOf('e'));
+        var getFrontSubstring = getFront.substring(0,6);
+        var getBack = resultStr.substring(resultStr.indexOf('e'), resultStr.length);
+        display.innerHTML = getFrontSubstring + getBack;  
+      } else {
+        display.innerHTML = resultStr;  
+      }
       funkDisplay.innerHTML = "x²";
       equals.setAttribute("data-result", resultNum);
       decimal.disabled=false;
