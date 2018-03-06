@@ -1,3 +1,9 @@
+//  Nice work on your Calculator everyone!  The GUI looks great and works well.  You've got some really
+// good functionality there.  Nice job of commenting as well.  Exponents are other extra functions
+// are working nicely.  I did notice that if I clicked two operations in a row and tried that
+// calculation, I'd get an error.  Otherwise your calculator looked and worked great
+
+
 // TO DO
 // character Limit for calculations(display/string length)
 // hide placeholder dot for funk display
