@@ -1,3 +1,14 @@
+// Great looking microwave, everyone.  I like what you did with the display!
+// I missed a 'Clear' button and the 'Cancel' button...  
+// Then 'End' button doesn't seem to stop the
+// countdown or clear the display...   I actually have to refresh the page
+// to start a new countdown.  Other than those bugs, your microwave works
+// great.  Unfortunately I can't see any commit history because you all moved
+// repositories, and this mades it hard to mark participation on this project.
+// I realize you talked to me about this Russ.  In hindsight, I won't let groups
+// do that again (I'm not taking marks off for that though)
+// 16/20
+
 
     var keypadDisplay =[];
     var clockDisplay = [];
